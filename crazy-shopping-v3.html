@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crazy Shopping - ملابس نسائية تركية أصلية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #9333ea;
+            --secondary: #7e22ce;
+            --light: #f8f2ff;
+            --dark: #1f1f1f;
+            --gray: #6b7280;
+            --success: #10b981;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Almarai', sans-serif;
+            background: #ffffff;
+            color: var(--dark);
+            line-height: 1.8;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Almarai', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ==================== KEYFRAMES ==================== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes rotate360 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==================== GENERAL STYLES ==================== */
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 19px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 800;
+            display: inline-block;
+            text-decoration: none;
+            font-family: 'Almarai', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 45px rgba(147, 51, 234, 0.45);
+        }
+
+        .btn-secondary {
+            background: var(--light);
+            color: var(--primary);
+            border: 3px solid var(--primary);
+            font-weight: 800;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* ==================== HEADER & NAVIGATION ==================== */
+        header {
+            background: white;
+            border-bottom: 2px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            animation: slideInRight 0.6s ease;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            animation: rotate360 3s linear infinite;
+            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.45);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            overflow: hidden;
+            border: 4px solid white;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            font-size: 19px;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .auth-btn {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(135deg, var(--light) 0%, #f3f0ff 100%);
+            padding: 120px 40px;
+            text-align: center;
+            animation: slideUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: 62px;
+            margin-bottom: 25px;
+            color: var(--dark);
+            animation: slideUp 0.8s ease 0.1s both;
+            line-height: 1.2;
+        }
+
+        .hero-tagline {
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 30px;
+            animation: slideUp 0.8s ease 0.15s both;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--gray);
+            margin-bottom: 50px;
+            animation: slideUp 0.8s ease 0.2s both;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease 0.3s both;
+        }
+
+        /* ==================== LOGIN PAGE ==================== */
+        .login-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .login-container.active {
+            display: flex;
+        }
+
+        .login-form {
+            background: white;
+            padding: 55px;
+            border-radius: 28px;
+            width: 90%;
+            max-width: 480px;
+            box-shadow: 0 20px 60px rgba(147, 51, 234, 0.25);
+            animation: slideUp 0.5s ease;
+            position: relative;
+        }
+
+        .login-form h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .login-form p {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-weight: 800;
+            font-size: 17px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 14px;
+            font-size: 17px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.15);
+        }
+
+        .login-form .btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .close-login {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .close-login:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        /* ==================== PRODUCTS SECTION ==================== */
+        .products-section {
+            padding: 120px 40px;
+            background: #fafafa;
+        }
+
+        .section-title {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 70px;
+            color: var(--dark);
+            animation: slideUp 0.6s ease;
+            line-height: 1.3;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 35px;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 25px 60px rgba(147, 51, 234, 0.18);
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--light), #f3f0ff);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.12);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 800;
+            animation: bounce 0.6s ease;
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+
+        .product-price {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .product-action {
+            width: 100%;
+            padding: 14px;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        /* ==================== FLOATING CART ==================== */
+        .floating-cart {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(147, 51, 234, 0.5);
+            animation: slideUp 0.6s ease;
+            color: white;
+            font-size: 36px;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .floating-cart:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 40px rgba(147, 51, 234, 0.6);
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .info-section {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .info-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .info-text h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .info-text p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.9;
+            font-size: 19px;
+        }
+
+        .info-features {
+            margin-top: 45px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            animation: slideUp 0.6s ease;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light), #f3f0ff);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: var(--primary);
+            flex-shrink: 0;
+            box-shadow: 0 5px 20px rgba(147, 51, 234, 0.12);
+        }
+
+        .feature-text h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .feature-text p {
+            font-size: 17px;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* ==================== COMPLAINTS SECTION ==================== */
+        .complaints-section {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #fef3f8 0%, #fef0f7 100%);
+        }
+
+        .complaints-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .complaints-info h2 {
+            font-size: 48px;
+            margin-bottom: 35px;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .complaints-info p {
+            font-size: 19px;
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.9;
+        }
+
+        .complaints-form {
+            background: white;
+            padding: 45px;
+            border-radius: 22px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            animation: slideUp 0.6s ease 0.1s both;
+        }
+
+        .complaints-form h3 {
+            font-size: 26px;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .complaints-form input,
+        .complaints-form textarea,
+        .complaints-form select {
+            padding: 16px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 14px;
+            font-size: 17px;
+            font-family: inherit;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .complaints-form input:focus,
+        .complaints-form textarea:focus,
+        .complaints-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.15);
+        }
+
+        .complaints-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .complaints-form .btn {
+            width: 100%;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, var(--light) 0%, #f3f0ff 100%);
+        }
+
+        .contact-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .contact-info h2 {
+            font-size: 48px;
+            margin-bottom: 45px;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            padding: 28px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(-8px);
+            box-shadow: 0 8px 30px rgba(147, 51, 234, 0.12);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 5px 20px rgba(147, 51, 234, 0.35);
+        }
+
+        .contact-item h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .contact-item p {
+            color: var(--gray);
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            animation: slideUp 0.6s ease 0.1s both;
+            background: white;
+            padding: 45px;
+            border-radius: 22px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-form h3 {
+            font-size: 26px;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 16px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 14px;
+            font-size: 17px;
+            font-family: inherit;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.15);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: linear-gradient(135deg, var(--dark), #2d2d2d);
+            color: white;
+            padding: 70px 40px 30px;
+            text-align: center;
+            animation: slideUp 0.8s ease;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+            text-align: right;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .footer-column p, .footer-column a {
+            font-size: 17px;
+            color: #d1d5db;
+            text-decoration: none;
+            margin-bottom: 14px;
+            display: block;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 30px;
+            font-size: 16px;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            body {
+                font-size: 17px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 25px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .info-content,
+            .contact-container,
+            .complaints-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 22px;
+            }
+
+            .product-image-wrapper {
+                height: 250px;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            .nav-container {
+                padding: 15px 25px;
+            }
+
+            .logo-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+            }
+
+            .floating-cart {
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 70px;
+                height: 70px;
+            }
+
+            .products-section,
+            .info-section,
+            .contact-section,
+            .complaints-section {
+                padding: 80px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 16px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero {
+                padding: 60px 18px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .product-image-wrapper {
+                height: 200px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+
+            .btn {
+                padding: 12px 22px;
+                font-size: 16px;
+            }
+
+            .nav-container {
+                padding: 12px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">👗</div>
+                <span>Crazy Shopping</span>
+            </a>
+            <nav class="nav-links">
+                <a onclick="scrollToSection('products')">المنتجات</a>
+                <a onclick="scrollToSection('about')">عننا</a>
+                <a onclick="scrollToSection('complaints')">الشكاوي</a>
+                <a onclick="scrollToSection('contact')">تواصل معنا</a>
+            </nav>
+            <div class="auth-btn">
+                <button class="btn btn-secondary" onclick="openLogin()">دخول</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- LOGIN MODAL -->
+    <div class="login-container" id="loginModal">
+        <button class="close-login" onclick="closeLogin()">✕</button>
+        <div class="login-form">
+            <h2>تسجيل الدخول</h2>
+            <p>استمتعي بأفضل تجربة تسوق 👜</p>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary">دخول</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FLOATING CART -->
+    <div class="floating-cart" onclick="toggleCart()">🛒</div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <p class="hero-tagline">🎉 عرض خاص محدود</p>
+        <h1>Crazy Shopping</h1>
+        <p class="hero-subtitle">ملابس نسائية تركية أصلية | جودة عالية جداً | أسعار مجنونة 💜</p>
+        <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="scrollToSection('products')">تصفحي الآن</button>
+            <button class="btn btn-secondary" onclick="scrollToSection('contact')">تواصلي معنا</button>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <h2 class="section-title">مجموعتنا الحصرية ✨</h2>
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here -->
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="info-section" id="about">
+        <div class="info-content">
+            <div class="info-text">
+                <h2>من نحن ؟</h2>
+                <p><strong>Crazy Shopping</strong> متخصصة في بيع الملابس النسائية التركية الأصلية بجودة عالية جداً وأسعار منافسة جداً.</p>
+                <p>🌟 نحن <strong>وكيل معتمد</strong> لماركة <strong>الڤينا</strong> المشهورة، ونوفر لكِ أحدث التصاميم والموضات من تركيا مباشرة.</p>
+                
+                <div class="info-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h3>ملابس أصلية 100%</h3>
+                            <p>جودة عالية مضمونة مع شهادة الأصالة</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <div class="feature-text">
+                            <h3>أسعار مجنونة</h3>
+                            <p>أفضل الأسعار في السوق مع عروض مستمرة</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🚚</div>
+                        <div class="feature-text">
+                            <h3>توصيل سريع</h3>
+                            <p>توصيل مباشر من الموقع أو شحن آمن</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👗</div>
+                        <div class="feature-text">
+                            <h3>موضات مختلفة</h3>
+                            <p>فساتين، بلوزات، جاكيتات، وأكثر</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-image">
+                <svg width="100%" height="450" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+                    <rect fill="#f3f0ff" width="400" height="400"/>
+                    <circle cx="200" cy="200" r="150" fill="#9333ea" opacity="0.1"/>
+                    <text x="50%" y="50%" font-size="140" fill="#9333ea" text-anchor="middle" dominant-baseline="middle" font-weight="bold">👗</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLAINTS SECTION -->
+    <section class="complaints-section" id="complaints">
+        <div class="complaints-container">
+            <div class="complaints-info">
+                <h2>الشكاوي والمقترحات 📝</h2>
+                <p>رأيك مهم جداً لنا! إذا كان لديك أي شكوى أو مقترح لتحسين خدماتنا، نرجو إخبارنا مباشرة.</p>
+                <p>سنقوم بمراجعة كل الشكاوي والمقترحات والعمل على تحسين الخدمة باستمرار.</p>
+                <p>شكراً لثقتك بنا! 💜</p>
+            </div>
+
+            <form class="complaints-form" onsubmit="handleComplaint(event)">
+                <h3>أرسلي شكواك أو مقترحك</h3>
+                <input type="text" placeholder="اسمك الكامل" required>
+                <input type="email" placeholder="بريدك الإلكتروني" required>
+                <input type="tel" placeholder="رقم الهاتف" required>
+                <select required>
+                    <option value="">-- اختاري نوع الشكوى --</option>
+                    <option value="جودة">مشكلة في الجودة</option>
+                    <option value="توصيل">مشكلة في التوصيل</option>
+                    <option value="سعر">مشكلة في السعر</option>
+                    <option value="خدمة">مشكلة في الخدمة</option>
+                    <option value="مقترح">مقترح لتحسين الخدمة</option>
+                    <option value="أخرى">أخرى</option>
+                </select>
+                <textarea placeholder="اشرحي الشكوى أو المقترح بالتفصيل..." required></textarea>
+                <button type="submit" class="btn btn-primary">📧 إرسال الشكوى</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>تواصلي معنا 💬</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>موقعنا</h3>
+                        <p>بديا - الشارع الرئيسي<br>مقابل مدرسة بنات بديا الأساسية</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div>
+                        <h3>ساعات العمل</h3>
+                        <p>من الساعة 10 صباحاً<br>إلى الساعة 10 مساءً</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h3>اتصلي بنا</h3>
+                        <p><a href="tel:+972598360322" style="color: var(--primary); font-weight: 800; font-size: 20px;">0598360322</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">👩</div>
+                    <div>
+                        <h3>مديرة المتجر</h3>
+                        <p style="font-weight: 800; font-size: 20px;">مروة بعدين</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleMessage(event)">
+                <h3>أرسلي رسالة لنا</h3>
+                <input type="text" placeholder="اسمك الكامل" required>
+                <input type="email" placeholder="بريدك الإلكتروني" required>
+                <input type="tel" placeholder="رقم الهاتف" required>
+                <textarea placeholder="رسالتك..." required></textarea>
+                <button type="submit" class="btn btn-primary">📧 إرسال الرسالة</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>عن Crazy Shopping</h4>
+                <p>متخصصون في بيع الملابس النسائية التركية الأصلية بجودة عالية وأسعار مجنونة</p>
+            </div>
+            <div class="footer-column">
+                <h4>روابط سريعة</h4>
+                <a onclick="scrollToSection('products')">المنتجات</a>
+                <a onclick="scrollToSection('about')">عننا</a>
+                <a onclick="scrollToSection('complaints')">الشكاوي</a>
+                <a onclick="scrollToSection('contact')">تواصل معنا</a>
+            </div>
+            <div class="footer-column">
+                <h4>معلومات التواصل</h4>
+                <p>📍 بديا - الشارع الرئيسي</p>
+                <p>📱 0598360322</p>
+                <p>⏰ 10 ص - 10 م</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Crazy Shopping - جميع الحقوق محفوظة | ملابس نسائية تركية أصلية | وكلاء معتمدين لماركة الڤينا</p>
+        </div>
+    </footer>
+
+    <script>
+        // Product database
+        const products = [
+            { id: 1, title: "فستان أسود فاخر", price: "79.99$" },
+            { id: 2, title: "فستان أحمر مميز", price: "89.99$" },
+            { id: 3, title: "بلوزة زرقاء أنيقة", price: "49.99$" },
+            { id: 4, title: "فستان بيج كلاسيكي", price: "69.99$" },
+            { id: 5, title: "جاكيت أخضر عصري", price: "59.99$" },
+            { id: 6, title: "فستان أبيض ناعم", price: "74.99$" },
+            { id: 7, title: "سترة بنفسجية فاخرة", price: "84.99$" },
+            { id: 8, title: "بنطال رمادي أنيق", price: "54.99$" },
+        ];
+
+        let cart = [];
+
+        function loadProducts() {
+            const grid = document.getElementById('productsGrid');
+            const emojis = ['👗', '👗', '👚', '👗', '🧥', '👗', '🧥', '👖'];
+            grid.innerHTML = products.map((product, index) => `
+                <div class="product-card" style="animation-delay: ${index * 0.1}s">
+                    <div class="product-image-wrapper">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f3f0ff, #e9d5ff); display: flex; align-items: center; justify-content: center; font-size: 90px;">
+                            ${emojis[index % emojis.length]}
+                        </div>
+                        <div class="product-badge">جديد</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <div class="product-price">${product.price}</div>
+                        <button class="btn btn-primary product-action" onclick="addToCart(${product.id})">🛒 أضيفي للسلة</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            showNotification(`✓ تم إضافة "${product.title}" إلى السلة!`);
+        }
+
+        function toggleCart() {
+            if (cart.length === 0) {
+                showNotification('السلة فارغة! 🛒');
+                return;
+            }
+            const phone = '0598360322';
+            const message = `مرحباً مروة بعدين، أنا مهتمة بشراء المنتجات التالية:\n\n${cart.map(p => `- ${p.title} (${p.price})`).join('\n')}\n\nهل متاح الآن؟`;
+            const whatsappUrl = `https://wa.me/972${phone.slice(1)}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function openLogin() {
+            document.getElementById('loginModal').classList.add('active');
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').classList.remove('active');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            showNotification(`مرحباً! تم تسجيل دخول ${email} بنجاح 🎉`);
+            closeLogin();
+            event.target.reset();
+        }
+
+        function handleComplaint(event) {
+            event.preventDefault();
+            showNotification(`شكراً لك! تم استلام شكواك بنجاح ✓\nسنتابعها معك قريباً`);
+            event.target.reset();
+        }
+
+        function handleMessage(event) {
+            event.preventDefault();
+            showNotification(`شكراً لك! تم إرسال رسالتك بنجاح ✓\nسنرد عليك قريباً على الواتس`);
+            event.target.reset();
+        }
+
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function showNotification(message) {
+            alert(message);
+        }
+
+        // Close login modal when clicking outside
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) closeLogin();
+        });
+
+        // Load products on page load
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+</html>
